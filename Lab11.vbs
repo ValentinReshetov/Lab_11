@@ -12,14 +12,17 @@ info= info& "PNP ID of device " & objPort.PNPDeviceID 'идентификато�
 info= info& "Name of computer" & objPort.SystemName 'имя компьютера
 Next
 WScript.Echo info
+
 For Each objObject In objService.ExecQuery("SELECT * FROM Win32_PortResource")
-	WScript.Echo objObject.Caption 'наименование устройства
-	WScript.Echo objObject.Description 'описание
-	WScript.Echo objObject.CSName 'имя компьютера
-	WScript.Echo objObject.StartingAddress 'начальный адрес
-	WScript.Echo objObject.EndingAddress 'конечный адрес
-	WScript.Echo
+info= info& "Name of device " & objObject.Caption 'наименование устройства
+info= info& "Description of device " & objObject.Description 'описание
+info= info& "Name of computer " & objObject.CSName 'имя компьютера
+info= info& "Start Address " & objObject.StartingAddress 'начальный адрес
+info= info& "End Address " & objObject.EndingAddress 'конечный адрес
 Next
+
+WScript.Echo info
+
 For Each objPort In objService.ExecQuery("SELECT * FROM Win32_ParallelPort")
 	WScript.Echo objPort.Caption 'наименование устройства
 	WScript.Echo objPort.Description 'описание устройства
