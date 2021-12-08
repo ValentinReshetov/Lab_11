@@ -10,11 +10,10 @@ For Each objPort In objService.ExecQuery("SELECT * FROM Win32_SerialPort, Win32_
 	WScript.Echo objPort.DeviceID 'идентификатор устройства
 	WScript.Echo objPort.PNPDeviceID 'идентификатор устройства Plug-and-Play
 	WScript.Echo objPort.SystemName 'имя компьютера
-Next
-For Each objPort In objService.ExecQuery("SELECT * FROM Win32_PortResource")
 	WScript.Echo objObject.Caption 'наименование устройства
 	WScript.Echo objObject.Description 'описание
 	WScript.Echo objObject.CSName 'имя компьютера
 	WScript.Echo objObject.StartingAddress 'начальный адрес
 	WScript.Echo objObject.EndingAddress 'конечный адрес
+
 Next
